@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome Message</title>
+</head>
+<body>
+  <form>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name"><br>
+    <label for="age">Age:</label><br>
+    <input type="number" id="age"><br>
+    <input type="checkbox" id="confirmAge"> I confirm that I have entered my age correctly<br>
+    <button onclick="check()" onsubmit="return myFunction();" >Submit</button>
+  </form> 
+  <p id="result"></p>
+  
+  <script>
+    alert("Welcome User.")
+    function myFunction(){
+   return false;
+}
+    function check() {
+      let name = document.getElementById("name").value;
+      let age = document.getElementById("age").value;
+      let confirmAge = document.getElementById("confirmAge").checked;
+      if (age >= 18 && confirmAge) {
+        document.getElementById("result").innerHTML = "Hi " + name + ", you are eligible to vote.";
+      } else {
+        document.getElementById("result").innerHTML = "Hi " + name + ", you are not eligible to vote.";
+      }
+    }
+  </script>
+</body>
+</html>
+
