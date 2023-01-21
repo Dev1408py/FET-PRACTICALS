@@ -1,0 +1,20 @@
+/* <! adding effect to the table like border> */
+table,td {border:1px solid black} 
+ table, td{align:center}
+/* <! adding hover effect to enhance the song chosen > */
+ td:hover {background-color:lightblue}
+
+
+ .main{ background-color:#88A89D}
+
+ .frame { background-color:#ACE4D1}
+/* <! aligning and changing the font of the header> */
+ .head { text-align:center}
+ .head { font-family:"lucida Console",Courier, monospace;}
+ .img{
+  height: 400px;
+  width: 400px;
+ }
+ #head{
+  text-align: center;
+ }
