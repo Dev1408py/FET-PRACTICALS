@@ -23,6 +23,18 @@ for(i of data){
   ans += i
   ans+= " "
 }
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+let shf = "";
+for(i of data){
+  shf += i
+  shf+= " "
+}
 
 document.getElementById("ans").innerHTML = "["+ans+"]";
-console.log(ans)
+document.getElementById("shuf").innerHTML = "["+shf+"]";
