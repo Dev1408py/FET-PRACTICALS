@@ -1,0 +1,20 @@
+const p = new Promise((resolve,reject)=>{
+  let health = prompt("Hey Kayo are you healty(y/n).");
+  if(health=='y' || health=='Y'){
+    let n = prompt("Hey Kayo enter the no. of cakes you are gonna make?");
+   resolve(n);
+  }
+  else{
+    reject("Kayo wouldn't make cake.");
+  }
+})
+
+p.then((value)=>{
+  alert(`Kayo is gonna make ${value} cakes.`);
+}).catch((error)=>{
+  alert(error);
+})
+
+setTimeout(()=>{
+  alert("I still have a party!!");
+},1000)
