@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
 
+        .login-box {
+            width: 320px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form onsubmit="return validateForm()">
+            <div>
+                <label for="name">NAME</label>
+                <input type="text" id="name" required>
+            </div>
+            <div>
+                <label for="age">AGE</label>
+                <input type="number" id="age" required>
+            </div>
+            <div>
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" required>
+            </div>
+            <div>
+                <label for="mobile">MOBILE</label>
+                <input type="text" id="number" required>
+            </div>
+            <div>
+                <label for="pass">PASSWORD</label>
+                <input type="password" id="pass" required>
+            </div>
+            <div>
+                <label for="cpass">CONFIRM PASSWORD</label>
+                <input type="password" id="cpass" required>
+            </div>
+            <div>
+                <button onclick="myfunction()"> SUBMIT</button>
+            </div>
+    </div>
+    <script type="text/javascript">
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+            var mobile = document.getElementById("number").value;
+            var password = document.getElementById("pass").value;
+            var confirmPassword = document.getElementById("cpass").value;
+            if (name == "" || email == "" || mobile == "" || password == "" || confirmPassword == "") {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+
+            if (!validateEmail(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            if (!validateAge(age)) {
+                alert("Please enter a valid age.");
+                return false;
+            }
+
+            if (!validateMobile(mobile)) {
+                alert("Please enter a valid mobile number.");
+                return false;
+            }
+
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateEmail(email) {
+            let re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+        function validateAge(age) {
+            if(age<=0){
+                return false;
+            }
+            return true;
+        }
+
+        function validateMobile(mobile) {
+            let re = /^\d{10}$/;
+            return re.test(mobile);
+        }
+    </script>
+</body>
+</html>
